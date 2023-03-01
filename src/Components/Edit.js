@@ -56,7 +56,7 @@ const Edit = () => {
         };
 
         dispatch({type:"Update_Contact",payload:data});
-        toast.success("Student updated successfully!! ");
+        toast.success("Contact updated successfully!! ");
         navigate("/");
     }
     
@@ -64,7 +64,7 @@ const Edit = () => {
     <div className='container'>
         {currentContact ? ( <>
             
-    <h1 className='display-3 my-5 text-center'>Edit Student {id}</h1>
+    <h1 className='display-3 my-5 text-center'>Edit Contact {id}</h1>
    <div className='row'>
        <div className='col-md-6 shadow mx-auto pd-7'>
            <form onSubmit={handleSubmit}>
