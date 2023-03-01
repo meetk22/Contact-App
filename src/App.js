@@ -1,13 +1,24 @@
 import React from "react";
-import { BrowserRouter, Route, Routes } from "react-router-dom"
-import 'bootstrap/dist/css/bootstrap.min.css';
-import Todo from "./component/Todo";
+import { Route,Routes } from "react-router-dom";
+import { ToastContainer } from "react-toastify";
+import Navbar from "./Components/Navbar";
+import Home from "./Components/Home";
+import Add from "./Components/Add";
+import Edit from "./Components/Edit";
 
-function App(){
-    return(
-        <>
-          <Todo></Todo>
-        </>
-    )
+const App = () => {
+  return (
+    <div className="App">
+      <ToastContainer></ToastContainer>
+      <Navbar></Navbar>
+      <Routes>
+          <Route path="/" element={<Home />}></Route>
+          <Route exact path="/add" element={<Add />}></Route>
+          <Route exact path="/edit/:id" element={<Edit />}> </Route>
+      </Routes>
+    
+      </div>
+  )
 }
-export default App;
+
+export default App

@@ -1,11 +1,19 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import App from "./App"
+import "bootstrap/dist/css/bootstrap.min.css"
+import 'react-toastify/dist/ReactToastify.css';
+import { BrowserRouter as Router } from 'react-router-dom';
+import { legacy_createStore as createStore } from 'redux';
+import contactReducer from './Redux/Reducer/contactReducer';
 import { Provider } from 'react-redux';
-import store from './store';
+import { composeWithDevTools } from 'redux-devtools-extension';
+
+const store = createStore(contactReducer, composeWithDevTools())
 
 ReactDOM.render(
-    <Provider store={store}>
-        <App></App>
-    </Provider> 
+        <React.StrictMode>
+          <Provider store={store}> <Router><App></App></Router></Provider> 
+        </React.StrictMode>
+     
     , document.getElementById('root'));
